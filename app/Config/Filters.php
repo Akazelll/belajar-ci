@@ -2,7 +2,6 @@
 
 namespace Config;
 
-use App\Filters\Auth as FiltersAuth;
 use CodeIgniter\Config\Filters as BaseFilters;
 use CodeIgniter\Filters\Cors;
 use CodeIgniter\Filters\CSRF;
