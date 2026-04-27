@@ -1,41 +1,41 @@
 <?php
-$hlm = "Home";
-if (uri_string() != "") {
+  $hlm = 'Home';
+  if(uri_string()!=''){
     $hlm = ucwords(uri_string());
-}
-?>
+  }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>- Toko - <?php echo $hlm ?></title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+  <title>Store <?= $hlm; ?></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="<?= base_url() ?>NiceAdmin/assets/img/favicon.png" rel="icon">
-    <link href="<?= base_url() ?>NiceAdmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <link href="<?= base_url()?>NiceAdmin/assets/img/favicon.png" rel="icon">
+  <link href="<?= base_url()?>NiceAdmin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="<?= base_url() ?>NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="<?= base_url() ?>NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>NiceAdmin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="<?= base_url() ?>NiceAdmin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="<?= base_url() ?>NiceAdmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="<?= base_url() ?>NiceAdmin/<?= base_url() ?>NiceAdmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="<?= base_url()?>NiceAdmin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url()?>NiceAdmin/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?= base_url()?>NiceAdmin/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?= base_url()?>NiceAdmin/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="<?= base_url()?>NiceAdmin/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="<?= base_url()?>NiceAdmin/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?= base_url()?>NiceAdmin/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
-    <link href="<?= base_url() ?>NiceAdmin/assets/css/style.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="<?= base_url()?>NiceAdmin/assets/css/style.css" rel="stylesheet">
 
-    <!-- =======================================================
+  <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: Mar 09 2023 with Bootstrap v5.2.3
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -46,70 +46,64 @@ if (uri_string() != "") {
 
 <body>
 
-    <!-- ======= Header ======= -->
-    <?= $this->include('components/header') ?><!-- End Header -->
 
-    <!-- ======= Sidebar ======= -->
-    <?= $this->include('components/sidebar') ?><!-- End Sidebar-->
 
-    <main id="main" class="main">
+  <?= $this->include('components/header.php'); ?>
+  <?= $this->include('components/sidebar.php'); ?>
 
-        <div class="pagetitle">
-            <h1>Data Tables</h1>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">Home</li>
-                <?php
-                if ($hlm != "Home") {
-                ?>
-                    <li class="breadcrumb-item"><?php echo $hlm ?></li>
-                <?php
-                }
-                ?>
-            </ol>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Tables</li>
-                    <li class="breadcrumb-item active">Data</li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
+  <main id="main" class="main">
 
-        <section class="section">
-            <div class="row">
-                <div class="col-lg-12">
+    <div class="pagetitle">
+      <h1>Data Tables</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          <?php
+          if($hlm !="Home"){
+           ?>
+           <li class="breadcrumb-item"><?= $hlm; ?></li>
+           <?php
+           }
+            ?>
+        </ol>
 
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $hlm ?></h5>
-                            <?= $this->renderSection('content') ?>
-                        </div>
-                    </div>
+    </div><!-- End Page Title -->
 
-                </div>
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><?= $hlm; ?></h5>
+              <?= $this->renderSection('content'); ?>
             </div>
-        </section>
+          </div>
 
-    </main><!-- End #main -->
+        </div>
+      </div>
+    </section>
 
-    <!-- ======= Footer ======= -->
-    <?= $this->include('components/footer') ?>
-    <!-- End Footer -->
+  </main><!-- End #main -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <?= $this->include('components/footer.php'); ?>
 
-    <!-- Vendor JS Files -->
-    <script src="<?= base_url() ?>NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="<?= base_url() ?>NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url() ?>NiceAdmin/assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="<?= base_url() ?>NiceAdmin/assets/vendor/echarts/echarts.min.js"></script>
-    <script src="<?= base_url() ?>NiceAdmin/assets/vendor/quill/quill.min.js"></script>
-    <script src="<?= base_url() ?>NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="<?= base_url() ?>NiceAdmin/assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="<?= base_url() ?>NiceAdmin/assets/vendor/php-email-form/validate.js"></script>
 
-    <!-- Template Main JS File -->
-    <script src="<?= base_url() ?>NiceAdmin/assets/js/main.js"></script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="<?= base_url()?>NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="<?= base_url()?>NiceAdmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url()?>NiceAdmin/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="<?= base_url()?>NiceAdmin/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="<?= base_url()?>NiceAdmin/assets/vendor/quill/quill.min.js"></script>
+  <script src="<?= base_url()?>NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="<?= base_url()?>NiceAdmin/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="<?= base_url()?>NiceAdmin/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="<?= base_url()?>NiceAdmin/assets/js/main.js"></script>
 
 </body>
 
