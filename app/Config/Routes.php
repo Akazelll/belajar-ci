@@ -11,7 +11,12 @@ $routes->get('login', 'AuthController::login');
 $routes->post('login', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
 
-$routes->get('/product', 'ProductController::index');
+$routes->group('produk', ['filter' => 'auth'], function ($routes) {
+    $routes->get('', 'ProductController::index');
+    $routes->post('', 'ProductController::create');
+    $routes->post('edit/(:any)', 'ProductController::edit/$1');
+    $routes->get('delete/(:any)', 'ProductController::delete/$1');
+});
 
 $routes->get('/transaction', 'TransactionController::index');
 
