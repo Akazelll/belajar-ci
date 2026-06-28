@@ -32,10 +32,9 @@ if (session()->getFlashData('success')) {
         </div>
       </div>
 
-
+      <?= form_close() ?>
     </div>
-</div>
-<?php endforeach ?>
+  <?php endforeach ?>
 </div>
 
 <?= $this->endSection(); ?>

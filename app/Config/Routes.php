@@ -28,6 +28,12 @@ $routes->group('keranjang', ['filter' => 'auth'], function ($routes) {
 
 // $routes->get('/transaction', 'TransactionController::index');
 
+$routes->get('checkout', 'TransactionController::checkout', ['filter' => 'auth']);
+$routes->post('buy', 'TransactionController::buy', ['filter' => 'auth']);
+
+$routes->get('ajax/destinations', 'TransactionController::destinations', ['filter' => 'auth']);
+$routes->get('ajax/costs', 'TransactionController::costs', ['filter' => 'auth']);
+
 $routes->get('/', 'Home::index', ['filter' => 'auth']);
 $routes->get('/product', 'ProductController::index', ['filter' => 'auth']);
 $routes->get('/transaction', 'TransactionController::index', ['filter' => 'auth']);

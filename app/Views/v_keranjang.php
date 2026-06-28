@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @var array $items
+ * @var float|int $total
+ */
+?>
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
 <?php
@@ -11,6 +18,7 @@ if (session()->getFlashData('success')) {
 }
 ?>
 <?php echo form_open('keranjang/edit') ?>
+<!-- Table with stripped rows -->
 <table class="table datatable">
     <thead>
         <tr>
@@ -44,12 +52,15 @@ if (session()->getFlashData('success')) {
         ?>
     </tbody>
 </table>
+
 <div class="alert alert-info">
     <?php echo "Total = " . number_to_currency($total, 'IDR') ?>
 </div>
-<a class="btn btn-warning" href="<?php echo base_url() ?>keranjang/clear">Kosongkan Keranjang</a>
 <button type="submit" class="btn btn-primary">Perbarui Keranjang</button>
+<a class="btn btn-warning" href="<?php echo base_url() ?>keranjang/clear">Kosongkan Keranjang</a>
+<?php if (!empty($items)) : ?>
+    <a class="btn btn-success" href="<?php echo base_url() ?>checkout">Selesai Belanja</a>
+<?php endif; ?>
 
 <?php echo form_close() ?>
-
 <?= $this->endSection() ?>
