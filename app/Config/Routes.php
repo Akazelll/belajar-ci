@@ -34,9 +34,13 @@ $routes->post('buy', 'TransactionController::buy', ['filter' => 'auth']);
 $routes->get('ajax/destinations', 'TransactionController::destinations', ['filter' => 'auth']);
 $routes->get('ajax/costs', 'TransactionController::costs', ['filter' => 'auth']);
 
+$routes->resource('api/products', ['controller' => 'Api\ProdukController']);
+$routes->get('api/transactions', 'Api\TransaksiController::index');
+
 $routes->get('/', 'Home::index', ['filter' => 'auth']);
 $routes->get('/product', 'ProductController::index', ['filter' => 'auth']);
 $routes->get('/transaction', 'TransactionController::index', ['filter' => 'auth']);
+$routes->get('history', 'TransactionController::history', ['filter' => 'auth']);
 
 $routes->get('login', 'AuthController::login');
 $routes->post('login', 'AuthController::login');
